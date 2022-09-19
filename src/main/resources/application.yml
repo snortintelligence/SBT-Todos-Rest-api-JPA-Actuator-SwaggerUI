@@ -1,0 +1,33 @@
+server:
+  port: 4040
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    password: local
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: local
+  jpa:
+    hibernate:
+      ddl-auto: "update "
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle10gDialect
+    show-sql: true
+# Configure actuator to monitor & mange your spring boot-microservices
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          openapi, swagger-ui
+# exclude some endpoints of actuator
+        exclude: beans,env
+# actuator with swagger config
+  server:
+    port: 3030
+# app info props
+app:
+  info: "Todos rest api"
+
+      
+       
